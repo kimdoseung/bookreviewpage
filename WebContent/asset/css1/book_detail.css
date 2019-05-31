@@ -1,0 +1,382 @@
+@charset "utf-8";
+/*########책 소개 section.bookIntro##########*/
+.bookIntro,
+.bookScore,
+.reviewAreaWrap{
+	width:98%;
+	margin:0 1%;
+}
+.introInner{
+	width:100%;
+}
+.introInner h3,
+.reviewAreaWrap h3{
+	width:100%;
+}
+.introInner h4,
+.scoreInner h4,
+.reviewArea h4,
+.reviewCommentWrap h4,
+.gmapArea h4,
+.orderArea h4{
+	width:100%;
+	background-color:#1bbc9b;
+	color:#fff;
+	text-indent:1%;
+	padding:.5rem 0;
+}
+.introInner p{
+	width:100%;
+	padding:3%;
+	line-height:2rem;
+	font-size:1.2rem;
+	word-wrap: break-word;
+}
+/*########점수주기 section.bookScore##########*/
+.scoreInner{
+	width:100%;
+}
+.starImg{
+	width:23%;
+	overflow:hidden;
+	margin:20px auto 5px;
+	text-align:center;
+}
+.starImg:after{
+	content:'(원하는 점수만큼 별을 클릭해주세요)';
+	color:#ccc;
+	font-size:0.8rem;
+}
+.starImg img{
+	display:inline-block;
+	float:left;
+	width:20%;
+	padding:4px;
+}
+.scoringArea{
+	width:100%;
+	text-align:center;
+}
+.reviewScore,.scoringArea span{
+	display:inline-block;
+	font-size:1.5rem;
+	font-style:normal;
+}
+.reviewScore{
+	font-weight:700;
+}
+/*########score-form##########*/
+.updateAvgScore{
+	display:inline-block;
+	width:20%;
+	margin-left:80%;
+	height:30px;
+	line-height:30px;
+	background-color:transparent;
+	border:none;
+	border:1px solid #1bbc9b;
+	color:#1bbc9b;
+	border-radius:3px;
+	transition:.3s all;
+}
+.updateAvgScore:hover,
+.updateAvgScore:focus{
+	background-color:#1bbc9b;
+	color:#fff;
+}
+/*########리뷰 section.reviewAreaWrap##########*/
+.reviewArea{
+	width:100%;
+}
+.reviewArea .writeBtn{
+	width:10%;
+	height:40px;
+	line-height:40px;
+	margin-left:90%;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.writeBtn a{
+	display:inline-block;
+	width:100%;
+	text-align:center;
+	color:#1bbc9b;
+	border:1px solid #1bbc9b;
+	font-weight:700;
+	border-radius:3px;
+	transition:.3s all;
+}
+.writeBtn:hover a,
+.writeBtn a:focus{
+	color:red;
+	background-color:#1bbc9b;
+}
+.reviewInnerWrap{
+	width:100%;
+}
+.reviewUnit{
+	width:100%;
+	overflow:hidden;
+}
+.emptyReviewUnit{
+	text-align:center;
+	color:#aaa;
+	line-height:3rem;
+}
+.reviewImg,.reviewTitStat{
+	float:left;
+}
+.reviewImg{
+	width:20%;
+}
+.reviewImg .reviewThumb{
+	width:100%;
+}
+.reviewTitStat{
+	width:80%;
+	padding-left:1%;
+	overflow:hidden;
+}
+.reviewTitle,.reviewStat{
+	float:left;
+}
+.reviewTitle{
+	width:70%;
+	height:80px;
+	line-height:80px;
+	font-size:1.5rem;
+	font-weight:700;
+}
+.reviewStat{
+	width:30%;
+	height:80px;
+	line-height:80px;
+	overflow:hidden;
+}
+.reviewWriter,.ddabong,.commentOnReview{
+	float:left;
+}
+.reviewWriter{
+	width:60%;
+}
+.ddabong,.commentOnReview{
+	width:20%;
+}
+.ddabong img{
+	display:inline-block;
+	width:32px;
+	height:32px;
+	line-height:50px;
+	vertical-align:middle;
+}
+.writerInfo,.ddabongCnt,.commentCnt{
+	display:inline-block;
+	height:100%;
+	line-height:50px;
+	vertical-align:middle;
+	font-style:normal;
+	font-weight:700;
+	color:red;
+}
+.writerInfo{
+	color:dodgerblue;
+}
+.reviewWriter span,.commentOnReview span{
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.reviewStat:after{
+	content:'';
+	display:block;
+	clear:both;
+}
+
+.reviewUnit:after{
+	content:'';
+	display:block;
+	clear:both;
+}
+.reviewText{
+	color:#0f0f0f;
+	line-height:2rem;
+	word-wrap:word-break;
+}
+.reviewBtn{
+	width:40%;
+	margin-left:60%;
+	text-align:right;
+}
+.reviewBtn button{
+	display:inline-block;
+	background-color:transparent;
+	border:none;
+	border:1px solid #777;
+	border-radius:3px;
+	color:#777;
+	padding:0.5rem 0.75rem;
+	transition:.3s all;
+}
+.reviewBtn button:hover,
+.reviewBtn button:focus{
+	border:1px solid #ccc;
+	background-color:#ccc;
+	color:red;
+}
+/*댓글영역*/
+.showReply{
+	display:block;
+	width:100%;
+	background-color:#BE5452;
+	color:#fff;
+	border:none;
+	border:1px solid #BE5452;
+	border-radius:5px;
+	margin:20px 0;
+	height:2rem;
+	ling-height:2rem;
+	cursor:pointer;
+}
+.reviewCommentWrap{
+	width:100%;
+}
+
+.commentList{
+	width:100%;
+	padding:1%;
+}
+.commentUnit{
+	width:100%;
+	overflow:hidden;
+}
+.commentInfo,.replyListBtn{
+	float:left;
+}
+.commentInfo{
+	width:80%;
+	overflow:hidden;
+}
+.commentInfo p{
+	float:left;
+	height:2rem;
+	line-height:2rem;
+}
+.commentNum{
+	width:5%;
+}
+.commentNick{
+	width:10%;
+	text-indent:2%;
+}
+.commentContent{
+	width:85%;
+	text-indent:1%;
+}
+.replyListBtn{
+	width:20%;
+	overflow:hidden;
+}
+.replyListBtn a{
+	float:left;
+	width:50%;
+	text-align:center;
+	line-height:2rem;
+	font-size:0.75rem;
+	color:#000;
+	transition:.5s all;
+}
+.replyEdit{
+	position:relative;
+}
+.replyEdit:after{
+	content:'|';
+	color:#777;
+	position:absolute;
+	right:0;
+}
+.replyListBtn a:hover,.replyListBtn a:focus{
+	color:red;
+	text-decoration:underline;
+}
+
+
+/*댓글 등록 폼*/
+.postCommentWrap{
+	width:100%;
+	overflow:hidden;
+}
+.postCommentWrap form,.postCommentWrap button{
+	float:left;
+}
+.postCommentWrap form{
+	width:80%;
+}
+.postCommentWrap form p{
+	width:100%;
+	overflow:hidden;
+}
+.replycontent{
+	display:inline-block;
+	width:100%;
+}
+.postCommentWrap button{
+	display:inline-block;
+	width:20%;
+	margin:6px 0 16px;
+	padding:15px;
+	cursor:pointer;
+	background-color:transparent;
+	color:#1bbc9b;
+	border:none;
+	border:1px solid #1bbc9b;
+	border-radius:4px;
+	resize: vertical;
+	box-sizing:border-box;
+	transition:.5s all;
+}
+.postCommentWrap button:hover,.postCommentWrap button:focus{
+	background-color:#1bbc9b;
+	color:#fff;
+}
+/*############도서관 표시 구글맵#############*/
+/*
+.gmapAreaWrap{
+	width:98%;
+	margin:0 1%;
+}
+.gmapArea{
+	width:100%;
+}
+#googleMap{
+	width:100%;
+	height:400px;
+}
+*/
+/*구매하러가기*/
+.orderArea{
+	width:98%;
+	margin:0 1%;
+}
+.orderBtn{
+	width:20%;
+	margin:1rem 0 1rem 80%;
+	height:30px;
+}
+.orderBtn a{
+	display:inline-block;
+	width:100%;
+	height:100%;
+	line-height:30px;
+	text-align:center;
+	border:1px solid #1bbc9b;
+	border-radius:4px;
+	color:#1bbc9b;
+	transition:.3s all;
+	font-size:0.9rem;
+}
+.orderBtn:hover a,
+.orderBtn a:focus{
+	color:#fff;
+	background-color:#1bbc9b;
+}

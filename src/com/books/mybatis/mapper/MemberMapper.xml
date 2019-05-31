@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Member">
+
+  <resultMap type="Member" id="membermap">
+  	<id column="member_id" property="member_id"/>
+  	<result column="id" property="id"/>
+  	<result column="pass" property="pass"/>
+  	<result column="nickname" property="nickname"/>
+  	<result column="name" property="name"/>
+  	<result column="email" property="email"/>
+  	<result column="regdate" property="regdate"/>
+  	<result column="lastlogin" property="lastlogin"/>
+  	<association column="auth_id" property="auth" javaType="Auth" select="Auth.select"/>
+  </resultMap>
+  
+	<sql id="sql_select">
+		select member_id,auth_id,id,pass,nickname,name,email,regdate,lastlogin from member
+	</sql>
+
+	<select id="selectAll" resultMap="membermap">
+		<include refid="sql_select"/> order by member_id desc
+	</select>
+	
+	<select id="select" parameterType="int" resultMap="membermap">
+		<include refid="sql_select"/> where member_id=#{member_id}
+	</select>
+	
+	<!-- 로그인 체크 -->
+  	<select id="loginCheck" resultMap="membermap" parameterType="Member" >
+  		<include refid="sql_select"/> where id=#{id} and pass=#{pass}
+  	</select>
+	
+	<select id="selectByAuth" resultMap="membermap">
+		<include refid="sql_select"/> where auth_id=#{auth_id}
+	</select>
+	
+	<insert id="insert" parameterType="Member">
+		insert into member(id,pass,nickname,name,email)
+		values(#{id},#{pass},#{nickname},#{name},#{email})
+	</insert>
+	
+	<update id="update" parameterType="Member">
+		update member set pass=#{pass},nickname=#{nickname},email=#{email} where member_id=#{member_id}
+	</update>
+	
+	<update id="updateAuth" parameterType="Member">
+		update member set auth_id=#{auth.auth_id} where member_id=#{member_id}
+	</update>
+	<!-- 회원가입할때 아이디하고 이메일 중복 확인해주는거-->
+	<select id="idCheck" parameterType="String" resultMap="membermap">
+		<include refid="sql_select"/> where id=#{id}
+	</select>
+	
+	<select id="emailCheck" parameterType="String" resultMap="membermap">
+		<include refid="sql_select"/> where email=#{email}
+	</select>
+	
+	<!-- 개인정보 수정할때 현재비밀번호가 맞아야 비밀번호를 변경할수있게해준다 -->
+	<select id="passCheck" parameterType="String" resultMap="membermap">
+		<include refid="sql_select"/> where pass=#{pass}
+	</select>
+
+	<select id="findId" parameterType="Member" resultMap="membermap">
+		<include refid="sql_select"/> where name=#{name} and email=#{email}
+	</select>
+
+	<select id="infoCheck" parameterType="Member" resultMap="membermap">
+		<include refid="sql_select"/> where id=#{id} and email=#{email}
+	</select>
+
+	<update id="resetPass" parameterType="Member">
+		update member set pass=#{pass} where id=#{id} and email=#{email}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from member where member_id = #{member_id}
+	</delete>
+
+	<update id="lastLogin" parameterType="Member">
+		update member set lastlogin=#{lastlogin} where id=#{id}
+	</update>
+	
+	<select id="selectById" parameterType="Member">
+		<include refid="sql_select"/> where id=#{id}
+	</select>
+
+	<select id="search" parameterType="String" resultMap="membermap" >
+		<include refid="sql_select"/> where id like CONCAT('%',#{searchWord},'%') or 
+		name like CONCAT('%',#{searchWord},'%') or 
+		nickname like CONCAT('%',#{searchWord},'%') or 
+		email like CONCAT('%',#{searchWord},'%')
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
